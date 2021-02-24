@@ -4,6 +4,8 @@ num_classes = 5
 # Preprocessor
 waymo_prepare_lidar_images_and_correspondences.resized_image_height = 481
 waymo_prepare_lidar_images_and_correspondences.resized_image_width = 721
+waymo_prepare_lidar_images_and_correspondences.camera_names= ('front',)
+waymo_prepare_lidar_images_and_correspondences.lidar_names=('top',)
 
 prepare_waymo_open_dataset.valid_object_classes = [1, 2, 3, 4]
 object_detection_preprocess.input_field_mapping_fn = @prepare_waymo_open_dataset
