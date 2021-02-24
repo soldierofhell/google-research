@@ -16,13 +16,13 @@
 
 VERSION=001
 JOB_NAME="det_waymo_${VERSION}"
-TRAIN_DIR="/tmp/tf3d_experiment/${JOB_NAME}"
+TRAIN_DIR="/content/drive/My Drive/tf3d_experiment/${JOB_NAME}"
 
 
 
 NUM_WORKERS=1
 STRATEGY="mirrored"  # set to "multi_worker_mirrored" when NUM_WORKERS > 1
-NUM_GPUS=8
+NUM_GPUS=1
 BATCH_SIZE=4
 LEARNING_RATES=0.03
 
@@ -33,7 +33,7 @@ LOG_FREQ=100
 # Data
 DATASET_NAME="waymo_object_per_frame"
 TRAIN_SPLIT="train"
-DATASET_PATH="/usr/local/google/home/${USER}/Developer/waymo_data/" # REPLACE
+DATASET_PATH="/content/original_tfrecords/" # REPLACE
 
 # Gin config
 IMPORT_MODULE="tf3d.gin_imports"
