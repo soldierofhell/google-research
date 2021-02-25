@@ -46,8 +46,8 @@ get_tf_data_dataset.dataset_format = 'tfrecord'
 step_decay.initial_learning_rate = ${LEARNING_RATES}
 "
 
-echo "Deleting TRAIN_DIR at ${TRAIN_DIR}..."
-rm -r "${TRAIN_DIR}"
+#echo "Deleting TRAIN_DIR at ${TRAIN_DIR}..."
+#rm -r "${TRAIN_DIR}"
 
 python -m tf3d.train \
   --params="${PARAMS}" \
