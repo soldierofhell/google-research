@@ -268,7 +268,7 @@ def split_inputs(inputs,
 
   # Setting mesh inputs
   mesh_keys = []
-  for key in standard_fields.get_input_point_fields():
+  for key in ['point_positions', 'point_intensities']: #standard_fields.get_input_point_fields():
     if key in inputs:
       mesh_keys.append(key)
   object_keys = []
