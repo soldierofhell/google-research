@@ -133,8 +133,8 @@ def _prepare_lidar_points(inputs, lidar_names):
   #np.save('/content/{}_{}_points_position.npy'.format(scene_name, frame_name), points_position.numpy())
   #np.save('/content/{}_{}_points_intensity.npy'.format(scene_name, frame_name), points_intensity.numpy())
   
-  tf.io.write_file(tf.strings.join("/content/", scene_name, "_", frame_name, "_points_position.tensor"), tf.io.serialize_tensor(points_position))
-  tf.io.write_file(tf.strings.join("/content/", scene_name, "_", frame_name, "_points_intensity.tensor"), tf.io.serialize_tensor(points_intensity))
+  tf.io.write_file(tf.strings.join(["/content/", scene_name, "_", frame_name, "_points_position.tensor"]), tf.io.serialize_tensor(points_position))
+  tf.io.write_file(tf.strings.join(["/content/", scene_name, "_", frame_name, "_points_intensity.tensor"]), tf.io.serialize_tensor(points_intensity))
 
   return (points_position, points_intensity, points_elongation, points_normal,
           points_in_image_frame_yx, points_in_image_frame_id)
