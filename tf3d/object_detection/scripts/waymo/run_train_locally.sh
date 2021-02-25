@@ -56,7 +56,7 @@ python -m tf3d.train \
   --train_dir="${TRAIN_DIR}" \
   --num_workers="${NUM_WORKERS}" \
   --num_gpus="${NUM_GPUS}" \
-  --run_functions_eagerly=false \
+  --run_functions_eagerly=true \
   --num_steps_per_epoch="${NUM_STEPS_PER_EPOCH}" \
   --log_freq="${LOG_FREQ}" \
   --distribution_strategy="${STRATEGY}" \
