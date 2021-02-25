@@ -25,7 +25,6 @@ from tf3d.datasets.specs import waymo_frames
 from tf3d.datasets.utils import example_parser
 from tf3d.utils import box_utils
 
-
 _FILE_PATTERN = '%s*.sst'
 _FILE_PATTERN_TFRECORD = '%s*.tfrecords'
 
@@ -127,6 +126,12 @@ def _prepare_lidar_points(inputs, lidar_names):
       tf.concat(points_in_image_frame_id, axis=0), dtype=tf.int32)
   points_in_image_frame_yx = tf.cast(
       tf.reverse(points_in_image_frame_xy, axis=[-1]), dtype=tf.int32)
+  
+  import numpy as np
+  scene_name = inputs['scene_name']
+  frame_name = inputs['frame_name']
+  np.save('/content/{}_{}_points_position.npy'.format(scene_name, frame_name), points_position.numpy())
+  np.save('/content/{}_{}_points_intensity.npy'.format(scene_name, frame_name), points_intensity.numpy())
 
   return (points_position, points_intensity, points_elongation, points_normal,
           points_in_image_frame_yx, points_in_image_frame_id)
