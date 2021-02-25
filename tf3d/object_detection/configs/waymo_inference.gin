@@ -1,0 +1,42 @@
+num_classes = 5
+label_map_path = 'tf3d/datasets/labelmaps/waymo_open_labelmap.pbtxt'
+
+# Preprocessor
+
+object_detection_preprocess.input_field_mapping_fn = None
+object_detection_preprocess.images_points_correspondence_fn = None
+object_detection_preprocess.points_pad_or_clip_size = None
+object_detection_preprocess.voxel_grid_cell_size = (0.2, 0.2, 0.2)
+object_detection_preprocess.voxels_pad_or_clip_size = None
+object_detection_preprocess.point_feature_keys = ('point_offset_bins',)
+object_detection_preprocess.x_min_degree_rotation = None
+object_detection_preprocess.x_max_degree_rotation = None
+object_detection_preprocess.y_min_degree_rotation = None
+object_detection_preprocess.y_max_degree_rotation = None
+object_detection_preprocess.z_min_degree_rotation = None
+object_detection_preprocess.z_max_degree_rotation = None
+object_detection_preprocess.min_scale_ratio = None
+object_detection_preprocess.max_scale_ratio = None
+object_detection_preprocess.translation_range = None
+object_detection_preprocess.points_within_box_margin = 0.1
+object_detection_preprocess.min_num_points_in_objects = 5
+
+
+# 3D Network
+SparseConvHourGlass.num_stacked_networks = 2
+SparseConvHourGlass.conv_filter_size = 3
+SparseConvHourGlass.encoder_dimensions = ((64, 64), (64, 128), (128, 192), (192, 256), (256, 320))
+SparseConvHourGlass.bottleneck_dimensions = (320, 320)
+SparseConvHourGlass.decoder_dimensions = ((320,), (256,), (192,), (128,), (64,))
+SparseConvHourGlass.use_batch_norm = True
+
+
+# Model
+ObjectDetectionModel.num_classes = %num_classes
+ObjectDetectionModel.predict_rotation_x = False
+ObjectDetectionModel.predict_rotation_y = False
+ObjectDetectionModel.predict_rotation_z = True
+ObjectDetectionModel.nms_score_threshold = 0.1
+ObjectDetectionModel.nms_iou_threshold = 0.3
+ObjectDetectionModel.nms_max_num_predicted_boxes = 200
+ObjectDetectionModel.use_furthest_voxel_sampling = False
