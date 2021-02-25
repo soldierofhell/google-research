@@ -127,9 +127,9 @@ def _prepare_lidar_points(inputs, lidar_names):
   points_in_image_frame_yx = tf.cast(
       tf.reverse(points_in_image_frame_xy, axis=[-1]), dtype=tf.int32)
   
-  frame_name = inputs['frame_name'] 
-  tf.io.write_file(tf.strings.join(["/content/", frame_name, "_points_position.tensor"]), tf.io.serialize_tensor(points_position))
-  tf.io.write_file(tf.strings.join(["/content/", frame_name, "_points_intensity.tensor"]), tf.io.serialize_tensor(points_intensity))
+  #frame_name = inputs['frame_name'] 
+  #tf.io.write_file(tf.strings.join(["/content/", frame_name, "_points_position.tensor"]), tf.io.serialize_tensor(points_position))
+  #tf.io.write_file(tf.strings.join(["/content/", frame_name, "_points_intensity.tensor"]), tf.io.serialize_tensor(points_intensity))
 
   return (points_position, points_intensity, points_elongation, points_normal,
           points_in_image_frame_yx, points_in_image_frame_id)
