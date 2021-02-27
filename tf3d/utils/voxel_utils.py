@@ -338,10 +338,10 @@ def pointcloud_to_sparse_voxel_grid(points, features, num_valid_points,
   Raises:
     ValueError: If pooling method is unknown.
   """
-  print(tf.shape(points))
-  print(tf.shape(features))
-  print(tf.shape(num_valid_points))
-  print(tf.shape(grid_cell_size))
+#   print(tf.shape(points))
+#   print(tf.shape(features))
+#   print(tf.shape(num_valid_points))
+#   print(tf.shape(grid_cell_size))
   batch_size = points.get_shape().as_list()[0]
   if batch_size is None:
     batch_size = tf.shape(points)[0]
