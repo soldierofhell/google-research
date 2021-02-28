@@ -101,7 +101,7 @@ def train(strategy,
     model.compile(optimizer=optimizer_fn(learning_rate=learning_rate_fn()))
     
     checkpoint = tf.train.Checkpoint(model=model)
-    ckpt_path = os.path.join(write_path, 'model', 'ckpt-100') # , 'ckpt-100.data-00000-of-00001'
+    ckpt_path = os.path.join(write_path, 'model', 'ckpt-99') # , 'ckpt-100.data-00000-of-00001'
     checkpoint.restore(ckpt_path)
 
     backup_checkpoint_callback = tf.keras.callbacks.experimental.BackupAndRestore(
