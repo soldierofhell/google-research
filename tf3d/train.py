@@ -121,7 +121,7 @@ def train(strategy,
 
   model.fit(
       x=inputs,
-      callbacks=[backup_checkpoint_callback, checkpoint_callback],
+      callbacks=[checkpoint_callback], # backup_checkpoint_callback, 
       steps_per_epoch=FLAGS.num_steps_per_epoch,
       epochs=FLAGS.num_epochs,
       verbose=1 if FLAGS.run_functions_eagerly else 2)
