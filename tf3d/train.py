@@ -100,9 +100,9 @@ def train(strategy,
     logging.info('Model compile starting')
     model.compile(optimizer=optimizer_fn(learning_rate=learning_rate_fn()))
     
-    checkpoint = tf.train.Checkpoint(model=model)
-    ckpt_path = os.path.join(write_path, 'model', 'ckpt-99') # , 'ckpt-100.data-00000-of-00001'
-    checkpoint.restore(ckpt_path)
+    #checkpoint = tf.train.Checkpoint(model=model)
+    #ckpt_path = os.path.join(write_path, 'model', 'ckpt-99') # , 'ckpt-100.data-00000-of-00001'
+    #checkpoint.restore(ckpt_path)
 
     backup_checkpoint_callback = tf.keras.callbacks.experimental.BackupAndRestore(
         backup_dir=os.path.join(write_path, 'backup_model'))
@@ -121,7 +121,7 @@ def train(strategy,
 
   model.fit(
       x=inputs,
-      callbacks=[checkpoint_callback], # backup_checkpoint_callback, 
+      callbacks=[backup_checkpoint_callback, checkpoint_callback], # backup_checkpoint_callback, 
       steps_per_epoch=FLAGS.num_steps_per_epoch,
       epochs=FLAGS.num_epochs,
       verbose=1 if FLAGS.run_functions_eagerly else 2)
